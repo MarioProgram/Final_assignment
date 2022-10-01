@@ -37,7 +37,7 @@
   }
 }
 
-.custom-w {
+.custom-w option{
   width: 15px !important;
 }
 .optional {
@@ -52,4 +52,78 @@
   'wght' 400,
   'GRAD' 0,
   'opsz' 48
+}
+
+.imgSizer {
+  width: 500px ;
+  max-height: 500px;
+  font-size: 500px;
+
+}
+
+select {
+  max-width: 100px;
+  min-width: 100px;
+  width: 50px !important;
+}
+
+#amount {
+  max-width: 100px;
+  min-width: 100px;
+  width: 50px !important;
+}
+.fraction {
+  max-width: 75px;
+  min-width: 75px;
+  width: 50px !important;
+}
+
+body {
+  background-color: #DEF3FD !important;
+}
+
+.nav-tabs .nav-link.active  {
+  background-color: #ACB4EA !important;
+}
+
+.btn-green {
+  background-color: #CAF7A3 !important;
+  color: black !important;
+  font-weight: 500 !important;
+  border: 1.5px solid black !important; 
+}
+
+.btn-red {
+  background-color: #FFA4A5 !important;
+  color: black !important;
+  font-weight: 500 !important;
+  border: 1.5px solid black !important
+}
+
+.cst-color {
+  background-color: #ACB4EA !important;
+}
+
+.btn-yellow {
+ 
+  background-color: #F0DC8C !important;
+  color: black !important;
+  font-weight: 500 !important;
+  border: 1.5px solid black !important
+}
+
+.modal-body {
+  background-color: #ACB4EA !important;
+}
+.modal-header {
+  background-color: #ACB4EA !important;
+  border: 1px solid #ACB4EA !important;
+}
+.modal-footer {
+  background-color: #ACB4EA !important;
+  border: 1px solid #ACB4EA !important;
+}
+
+.list-group-item {
+  background-color: #BCE9D1 !important;
 }
