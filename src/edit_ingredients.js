@@ -4,30 +4,33 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import './App.css'
 
-//is the form when the add ingredient button is clicked 
-export default function Ingredients(props) {
+
+//used with the edit_page component to use the updateInstructions function and sets the state each time something is changed each ingredient is mapped to a new input and the value is put as the forms default value
+export default function EditIngredients(props) {
     const[ingredients, setIngredients] = useState({
-        amount: 0,
-        fraction: '',
-        measurment: 'tsp', //default is tsp since that is the first option in the dropdown
-        item: ''
+        amount: props.amount,
+        fraction: props.fraction,
+        measurment: props.measurment,
+        item: props.item
 
     })
+    function update() {
+        console.log('tester')
+        props.updateIngredients(props.id, ingredients)
+      }
 
-    useEffect(() =>{
-        props.ingredientsStateAdder(props.id, ingredients)
-    }, [ingredients])
-    
     
     return (
         <>
-        <InputGroup className="mb-3">
-        <Form.Control aria-label="Text input with dropdown button" type="number" className="custom-w" size="sm" id='amount' onChange={(e) => {
+        <InputGroup className="mb-3" onChange={() => update()}>
+        <Form.Control aria-label="Text input with dropdown button" type="number" defaultValue={props.amount} className="custom-w" size="sm" id='amount' onChange={(e) => {
              let adder = Object.assign(ingredients);  
              adder.amount = e.target.value;                                 
-             setIngredients(adder)}}/>
+             setIngredients(adder)
+             ;
+             }}/>
             
-            <select className="form-select fraction" onChange={(e)=> {
+            <select className="form-select fraction" defaultValue={props.fraction} onChange={(e)=> {
                 let adder = Object.assign(ingredients);  
                 adder.fraction = e.target.value;                                 
                 setIngredients(adder)}}>
@@ -40,7 +43,7 @@ export default function Ingredients(props) {
                     <option value='3/4'>3/4</option>
             </select>
             
-            <Form.Select  size="sm" className="custom-w" id='measurement' onChange={(e) => {
+            <Form.Select  size="sm" className="custom-w" id='measurement' defaultValue={props.measurment} onChange={(e) => {
              let adder = Object.assign(ingredients);  
              adder.measurment = e.target.value;                                 
              setIngredients(adder)}}>
@@ -68,11 +71,10 @@ export default function Ingredients(props) {
                 <option value='whole'>whole</option>
                 <option value='piece'>piece</option>
             </Form.Select>
-            <Form.Control aria-label="Text input with dropdown button" className="w-0" size="sm" id='item' onChange={(e) => {
+            <Form.Control aria-label="Text input with dropdown button" className="w-0" size="sm" id='item' defaultValue={props.item} onChange={(e) => {
              let adder = Object.assign(ingredients);  
              adder.item = e.target.value;                                 
              setIngredients(adder)}}/>
-            
         </InputGroup>
         </>
     )
